@@ -6,21 +6,21 @@ function taobaoWorker() {
     var listPropSelected = [];     
     
     function checkSelectedProp(alertArea) {  
-        listPropSelected = [];   
-        const listProp = document.querySelectorAll('[class="skuCate"]');   
+        listPropSelected = [];      
+        const listProp = document.querySelectorAll('[class*="SkuContent--skuItem"]');
         var isSelectEnoughProp = false;
         if (listProp.length > 0) {
             var countCheck = 0;
             listProp.forEach(function (element) {
                 var itemProp = {};
-                var listSubProp = element.querySelectorAll('.skuItem');
-                var propTitle = element.querySelectorAll('.skuCateText');
+                var listSubProp = element.querySelectorAll('[class*="SkuContent--valueItem"]');
+                var propTitle = element.querySelectorAll('[class*="ItemLabel--labelText"]');
                 itemProp.propTitle = propTitle[0]?.innerText || '';
                 for (var i = 0; i < listSubProp.length; i++) {
                     var owner = listSubProp[i];
-                    if (owner.className.indexOf("current") > -1) {
+                    if (owner.className.indexOf("SkuContent--isSelected") > -1) {
                         countCheck ++;
-                        var skuValueName = owner.querySelectorAll('.skuValueName');
+                        var skuValueName = owner.querySelectorAll('[class*="SkuContent--valueItemText"]');
                         itemProp.propValue = skuValueName[0]?.innerText || '';
                         break;
                     }
