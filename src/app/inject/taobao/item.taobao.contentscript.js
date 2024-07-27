@@ -82,6 +82,12 @@ function taobaoWorker() {
                     if (productTitle.length > 0) {
                         objProduct.productTitle = productTitle[0]?.innerText || "";
                     }
+                    else {
+                        productTitle = document.querySelectorAll('[class*="ItemTitle--mainTitle"]');
+                        if (productTitle.length > 0) {
+                            objProduct.productTitle = productTitle[0]?.innerText || "";
+                        }
+                    }
                     objProduct.quantity = quantity?.value || 1;
                     if (productImg.length > 1) {
                         productImageWrappClass = productImg[0]?.className;
