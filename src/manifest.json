@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Chivican.com Order Tool",
   "short_name": "Chivican.com Order Tool",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Chivican.com - Order Tool",
   "icons": {
     "16": "app/assets/icons/icon_16_active.png",
@@ -13,7 +13,7 @@
     "default_icon": "app/assets/icons/icon_16_active.png",
     "default_title": "Chivican.com"
   },
-  "author": "Chivican.com.",
+  "author": "Chivican.com",
   "background": {
     "service_worker": "app/assets/js/service-worker.js",
     "type": "module"
@@ -126,7 +126,7 @@
     "https://*.world.taobao.com/*",
     "https://*.item.taobao.com/*",
     "https://*.tmall.com/*",
-    "http://*.chivican.com/*",
+    "https://*.chivican.com/*",
     "https://*.detail.1688.com/*"
   ],
   "web_accessible_resources": [
