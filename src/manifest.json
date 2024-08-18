@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Chivican.com Order Tool",
   "short_name": "Chivican.com Order Tool",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Chivican.com - Order Tool",
   "icons": {
     "16": "app/assets/icons/icon_16_active.png",
@@ -106,7 +106,7 @@
     },
     {
       "matches": [
-        "*://*.chivican.com/gio-hang"
+        "*://*.chivican.com/gio-hang*"
       ],
       "css": [
         "app/assets/js/toast/jquery.toast.css",

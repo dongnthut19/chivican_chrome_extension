@@ -27,7 +27,7 @@ function chivicanWorker() {
                     data: JSON.stringify(result["cvc-cart-storage"]),
                     success: function (data, textStatus, xhr) {
                         window.chrome.storage.local.set({ 'cvc-cart-storage': null });
-                        // window.location.reload();
+                        window.location.reload();
                      },
                      error: function (xhr, textStatus, errorThrown) {
                          console.log('Error in Operation');
