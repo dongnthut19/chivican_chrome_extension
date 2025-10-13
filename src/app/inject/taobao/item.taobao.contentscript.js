@@ -6,7 +6,8 @@ function taobaoWorker() {
     var listPropSelected = [];     
     
     function checkSelectedProp(alertArea) {  
-        listPropSelected = [];      
+        listPropSelected = [];
+        const areaProductProp = $("#tbpcDetail_SkuPanelBody");
         const listProp = document.querySelectorAll('[class*="skuItem"]');
         var isSelectEnoughProp = false;
         if (listProp.length > 0) {
@@ -14,13 +15,13 @@ function taobaoWorker() {
             listProp.forEach(function (element) {
                 var itemProp = {};
                 var listSubProp = element.querySelectorAll('[class*="valueItem"]');
-                var propTitle = element.querySelectorAll('[class*="labelText"]');
+                var propTitle = element.querySelectorAll('[class*="ItemLabel"]');
                 itemProp.propTitle = propTitle[0]?.innerText || '';
                 for (var i = 0; i < listSubProp.length; i++) {
                     var owner = listSubProp[i];
                     if (owner.className.indexOf("isSelected") > -1) {
                         countCheck ++;
-                        var skuValueName = owner.querySelectorAll('[class*="valueItemText"]');
+                        var skuValueName = owner.querySelectorAll('[class*="f-els-1"]');
                         itemProp.propValue = skuValueName[0]?.innerText || '';
                         break;
                     }
@@ -65,7 +66,7 @@ function taobaoWorker() {
                     };
                     var productTitle = document.querySelectorAll('[class*="mainTitle"]');
                     var promotionPro = $("#J_PromoPriceNum");
-                    var productPricePro = document.querySelectorAll('[class*="priceText"]');
+                    var productPricePro = document.querySelectorAll('[class*="priceWrap"]');
                     var quantity = document.querySelectorAll('[class*="countValue"]');
                     var productImg = document.querySelectorAll('[class*="mainPic"]');
                     var productImageWrappClass = '';
@@ -78,7 +79,8 @@ function taobaoWorker() {
                     else
                     {
                         if (productPricePro.length > 1) {
-                            objProduct.productPricePro = productPricePro[1]?.innerText || 0;
+                            const price = productPricePro[0].querySelectorAll('[class*="text"]');
+                            objProduct.productPricePro = price[0]?.innerText || 0;
                         }
                     }
                     if (productTitle.length > 0) {

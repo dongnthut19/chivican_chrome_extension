@@ -14,29 +14,6 @@ function chivicanWorker() {
         $("#loading-bar-spinner").remove();
     }
 
-    function addCartToDb() {
-        window.chrome.storage.local.get("cvc-cart-storage", function (result) {
-            if(result && result["cvc-cart-storage"])
-            {
-                var currentUserId = $("#hdCustomerId").val();
-                result["cvc-cart-storage"].Id = currentUserId;
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    url: apiURL + "cart/savecart",
-                    data: JSON.stringify(result["cvc-cart-storage"]),
-                    success: function (data, textStatus, xhr) {
-                        window.chrome.storage.local.set({ 'cvc-cart-storage': null });
-                        window.location.reload();
-                     },
-                     error: function (xhr, textStatus, errorThrown) {
-                         console.log('Error in Operation');
-                     }
-                });
-            }
-        });
-    }
-
     function addCartToDb1688() {
         window.chrome.storage.local.get("cvc-cart-storage", function (result) {
             if (result && result["cvc-cart-storage"]) {
