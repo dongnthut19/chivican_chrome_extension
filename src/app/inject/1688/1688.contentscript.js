@@ -279,14 +279,13 @@ function Worker1688() {
   }
 
   function addPropertyForNewUI() {
-    const noAffixWrapper = $(".no-affix-wrapper");
+    const noAffixWrapper = $(".pc-sku-gyp-more-dimension-wrapper");
     var alertArea = $Toolbar1688.find("#tbe-warning-bar");
-    const skuWrapper = $(".pc-sku-wrapper .sku-module-wrapper");
-    const orderedWrapper = $(".order-price-wrapper");
+    const skuWrapper = $(".gyp-sku-selector-wrap");
 
     if (
       skuWrapper.length > 0 &&
-      orderedWrapper.length === 0 &&
+      tempLstProduct.length === 0 &&
       noAffixWrapper.length > 0
     ) {
       //sản phẩm có thuộc tính nhưng chưa chọn thuộc tính sản phẩm
@@ -374,10 +373,10 @@ function Worker1688() {
       );
 
       // tìm cặp sku 1
-      const sku1Element = $(".pc-sku-wrapper .sku-module-wrapper .sku-prop-module-name");
+      const sku1Element = $(".gyp-sku-selector-wrap .sku-selector-flex-box .sku-selector-name");
       if (sku1Element.length > 0) {
         const skuName1 = sku1Element.length > 0 ? sku1Element[0].innerText : "";
-        const skuValue1Element = $(".pc-sku-wrapper .sku-module-wrapper .prop-item-wrapper .prop-item .prop-item-inner-wrapper.active .prop-name");
+        const skuValue1Element = $(".gyp-sku-selector-wrap .sku-selector-flex-box .sku-selector-props .sku-props-list .selector-prop-item.selected .prop-item-text");
         const skuValue1 = skuValue1Element.length > 0 ? skuValue1Element[0].innerText : "";
         if (skuValue1 !== "") {
           listProp.push({
@@ -399,7 +398,10 @@ function Worker1688() {
       let propValue = "";
       if (skuItemLeft.children.length > 2) {
         propValue = skuItemLeft.children[0].innerText;
-        propPrice = skuItemLeft.children[1].innerText.replace("元", "");
+        const priceBox = skuItemLeft.children[2];
+        if (priceBox.children.length > 0) {
+          propPrice = priceBox.children[0].innerText.replace("￥", "");
+        }
 
         if (propValue !== "") { 
           listProp.push({
@@ -505,10 +507,10 @@ function Worker1688() {
       );
       
       // tìm cặp sku 1
-      const sku1Element = $(".pc-sku-wrapper .sku-module-wrapper .sku-prop-module-name");
+      const sku1Element = $(".gyp-sku-selector-wrap .sku-selector-flex-box .sku-selector-name");
       if (sku1Element.length > 0) {
         const skuName1 = sku1Element.length > 0 ? sku1Element[0].innerText : "";
-        const skuValue1Element = $(".pc-sku-wrapper .sku-module-wrapper .prop-item-wrapper .prop-item .prop-item-inner-wrapper.active .prop-name");
+        const skuValue1Element = $(".gyp-sku-selector-wrap .sku-selector-flex-box .sku-selector-props .sku-props-list .selector-prop-item.selected .prop-item-text");
         const skuValue1 = skuValue1Element.length > 0 ? skuValue1Element[0].innerText : "";
         if (skuValue1 !== "") {
           listProp.push({
@@ -530,7 +532,10 @@ function Worker1688() {
       let propValue = "";
       if (skuItemLeft.children.length > 2) {
         propValue = skuItemLeft.children[0].innerText;
-        propPrice = skuItemLeft.children[1].innerText.replace("元", "");
+        const priceBox = skuItemLeft.children[2];
+        if (priceBox.children.length > 0) {
+          propPrice = priceBox.children[0].innerText.replace("￥", "");
+        }
 
         if (propValue !== "") { 
           listProp.push({
