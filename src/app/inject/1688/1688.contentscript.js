@@ -2,15 +2,13 @@ function Worker1688() {
   var self = this;
   var $Toolbar1688;
   var $ContainerPrice1688;
-  var minProduct = 0;
-  var minPrice = 0;
   var tempLstProduct = []; // chỉ dành cho UI mới
   var siteName = "chivican.com";
   var siteLink = "http://chivican.com";
 
   function flyingCart() {
     var cart = $("#tbe-btn-show-cart");
-    const imgtodrag = $(".od-gallery-turn-item-wrapper.prepic-active .od-gallery-img");
+    const imgtodrag = $(".od-gallery-preview .ant-image-img.preview-img");
     
     if (imgtodrag) {
       var imgclone = imgtodrag
@@ -178,7 +176,7 @@ function Worker1688() {
 
       // ảnh - lấy ảnh đang được hiển thị (có class prepic-active)
       let productImage = "";
-      const activeImage = $(".od-gallery-turn-item-wrapper.prepic-active .od-gallery-img");
+      const activeImage = $(".od-gallery-preview .ant-image-img.preview-img");
       if (activeImage.length > 0) {
         productImage = activeImage.attr('src') || activeImage[0].src;
       }
@@ -310,7 +308,7 @@ function Worker1688() {
 
       // ảnh - lấy ảnh đang được hiển thị (có class prepic-active)
       let productImage = "";
-      const activeImage = $(".od-gallery-turn-item-wrapper.prepic-active .od-gallery-img");
+      const activeImage = $(".od-gallery-preview .ant-image-img.preview-img");
       if (activeImage.length > 0) {
         productImage = activeImage.attr('src') || activeImage[0].src;
       }
