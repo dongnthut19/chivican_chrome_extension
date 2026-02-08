@@ -188,7 +188,8 @@ function Worker1688() {
         // Lấy shop link từ thẻ a.shop-company-name
         const shopLinkElement = $(".winport-title .shop-company-name");
         if (shopLinkElement.length > 0) {
-          shopLink = shopLinkElement.attr('href') || siteLink;
+          const rawShopLink = shopLinkElement.attr("href") || siteLink;
+          shopLink = rawShopLink.split("?")[0];
         } else {
           shopLink = siteLink;
         }
@@ -320,7 +321,8 @@ function Worker1688() {
         // Lấy shop link từ thẻ a.shop-company-name
         const shopLinkElement = $(".winport-title .shop-company-name");
         if (shopLinkElement.length > 0) {
-          shopLink = shopLinkElement.attr('href') || siteLink;
+          const rawShopLink = shopLinkElement.attr("href") || siteLink;
+          shopLink = rawShopLink.split("?")[0];
         } else {
           shopLink = siteLink;
         }
